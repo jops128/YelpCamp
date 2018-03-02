@@ -47,11 +47,11 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       username: req.user.username
   };
   var price = req.body.price;
-  geocoder.geocode(req.body.location, function (err, data) {
-    var lat = data.results[0].geometry.location.lat;
-    var lng = data.results[0].geometry.location.lng;
-    var location = data.results[0].formatted_address;
-    var newCampground = {name: name, image: image, description: desc, price: price, author:author, location: location, lat: lat, lng: lng};
+  // geocoder.geocode(req.body.location, function (err, data) {
+  //   var lat = data.results[0].geometry.location.lat;
+  //   var lng = data.results[0].geometry.location.lng;
+  //   var location = data.results[0].formatted_address;
+    var newCampground = {name: name, image: image, description: desc, price: price, author:author};
     // Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
@@ -63,7 +63,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         }
     });
   });
-});
+// });
 
 //SHOW - show more details of campground
 router.get("/:id", function(req, res) {

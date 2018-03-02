@@ -18,7 +18,8 @@ var campgroundsRoutes = require("./routes/campgrounds"),
     profileRoutes     = require("./routes/profile");
 
 // seedDB(); //seed the database  
-mongoose.connect("mongodb://localhost/yelp_camp_v8");
+// mongoose.connect("mongodb://localhost/yelp_camp_v8");
+mongoose.connect("mongodb://Josip:ranoPertia128@ds153778.mlab.com:53778/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
